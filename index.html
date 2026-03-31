@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt Político — Guia de Fotos com IA | Brendha Moraes</title>
+<meta name="description" content="Mais de 20 prompts prontos para gerar fotos profissionais de campanha política com Inteligência Artificial. Copie, cole e gere.">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-deep: #0a1430;
+    --navy-mid: #0f1d3d;
+    --navy-light: #162650;
+    --teal: #2aad7e;
+    --teal-dark: #1e8a63;
+    --teal-glow: rgba(42, 173, 126, 0.15);
+    --teal-glow-strong: rgba(42, 173, 126, 0.25);
+    --white: #ffffff;
+    --white-90: rgba(255,255,255,0.9);
+    --white-70: rgba(255,255,255,0.7);
+    --white-50: rgba(255,255,255,0.5);
+    --white-20: rgba(255,255,255,0.2);
+    --white-10: rgba(255,255,255,0.1);
+    --white-05: rgba(255,255,255,0.05);
+    --font-main: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-main);
+    background: var(--navy-deep);
+    color: var(--white-90);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ===================== UTILITY ===================== */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .container--narrow {
+    max-width: 800px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--white);
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 18px 48px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.02em;
+    border: 2px solid var(--teal);
+  }
+
+  .cta-btn:hover {
+    background: transparent;
+    color: var(--teal);
+    transform: translateY(-2px);
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--white-10), transparent);
+    margin: 0 auto;
+    max-width: 600px;
+  }
+
+  /* ===================== HERO ===================== */
+  .hero {
+    padding: 80px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, var(--teal-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .hero-text .hero-tag {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--teal);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-text .hero-tag::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 .accent { color: var(--teal); }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--white-70);
+    margin-bottom: 36px;
+    line-height: 1.8;
+  }
+
+  .hero-proof {
+    margin-top: 44px;
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+
+  .hero-proof-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hero-proof-item .number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--teal);
+  }
+
+  .hero-proof-item .label {
+    font-size: 0.75rem;
+    color: var(--white-50);
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
+  }
+
+  /* Hero photo grid */
+  .hero-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    position: relative;
+  }
+
+  .hero-photos::after {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border: 1px solid var(--white-10);
+    border-radius: 16px;
+    pointer-events: none;
+  }
+
+  .hero-photo {
+    aspect-ratio: 9/16;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    background: var(--navy-light);
+    border: 1px solid var(--white-10);
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Placeholder styling - remove when adding real images */
+  .hero-photo--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .hero-photo--placeholder .ph-icon {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--white-20);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: var(--white-20);
+  }
+
+  .hero-photo--placeholder .ph-label {
+    font-size: 0.6rem;
+    color: var(--white-20);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-photo:nth-child(1) { border-radius: 12px 8px 8px 8px; }
+  .hero-photo:nth-child(2) { border-radius: 8px 12px 8px 8px; }
+  .hero-photo:nth-child(3) { border-radius: 8px 8px 8px 12px; }
+  .hero-photo:nth-child(4) { border-radius: 8px 8px 12px 8px; }
+
+  /* ===================== PROBLEM ===================== */
+  .problem {
+    padding: 100px 0;
+  }
+
+  .problem .container { max-width: 800px; }
+
+  .problem h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 32px;
+    letter-spacing: -0.01em;
+  }
+
+  .problem p {
+    color: var(--white-70);
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+    max-width: 650px;
+  }
+
+  .highlight-box {
+    margin-top: 48px;
+    padding: 32px 36px;
+    background: var(--teal-glow);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .highlight-box p {
+    color: var(--white-90);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+
+  /* ===================== HOW IT WORKS ===================== */
+  .how {
+    padding: 100px 0;
+  }
+
+  .how .container { max-width: 800px; }
+
+  .how h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 700;
+    margin-bottom: 56px;
+    letter-spacing: -0.01em;
+  }
+
+  .steps { display: grid; gap: 40px; }
+
+  .step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .step-number {
+    width: 56px;
+    height: 56px;
+    border: 2px solid var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--teal);
+    flex-shrink: 0;
+  }
+
+  .step-content h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .step-content p {
+    color: var(--white-50);
+    font-size: 0.95rem;
+  }
+
+  /* ===================== WHAT'S INSIDE ===================== */
+  .inside {
+    padding: 100px 0;
+  }
+
+  .inside-header {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .inside h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+
+  .inside-header > p {
+    color: var(--white-50);
+    font-size: 1rem;
+    margin-bottom: 48px;
+    max-width: 550px;
+  }
+
+  .inside-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 48px;
+    align-items: start;
+    margin-top: 0;
+  }
+
+  .prompt-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .prompt-item {
+    padding: 16px 20px;
+    background: var(--white-05);
+    border-radius: 8px;
+    border: 1px solid var(--white-10);
+    font-size: 0.88rem;
+    color: var(--white-70);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .prompt-item:hover {
+    background: var(--teal-glow);
+    border-color: var(--teal);
+    color: var(--white-90);
+  }
+
+  .prompt-item::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background: var(--teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Inside photo column */
+  .inside-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    position: sticky;
+    top: 40px;
+  }
+
+  .inside-photo {
+    aspect-ratio: 9/16;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--navy-light);
+    border: 1px solid var(--white-10);
+  }
+
+  .inside-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .inside-photo--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .inside-photo--placeholder .ph-icon {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--white-20);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    color: var(--white-20);
+  }
+
+  .inside-photo--wide {
+    aspect-ratio: 9/16;
+  }
+
+  /* Bonus */
+  .bonus-section {
+    margin-top: 56px;
+    padding: 40px 36px;
+    background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+    border: 1px solid var(--white-10);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bonus-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--teal-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .bonus-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .bonus-section h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .bonus-section p {
+    color: var(--white-50);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* ===================== WHO ===================== */
+  .who {
+    padding: 100px 0;
+  }
+
+  .who .container { max-width: 800px; }
+
+  .who h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 700;
+    margin-bottom: 32px;
+    letter-spacing: -0.01em;
+  }
+
+  .who-list { display: grid; gap: 20px; }
+
+  .who-item {
+    padding: 24px 28px;
+    background: var(--white-05);
+    border-radius: 8px;
+    border: 1px solid var(--white-10);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .who-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--teal-glow);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+  }
+
+  .who-item p {
+    color: var(--white-70);
+    font-size: 0.95rem;
+  }
+
+  .who-item p strong {
+    color: var(--white-90);
+    font-weight: 600;
+  }
+
+  /* ===================== MID CTA ===================== */
+  .mid-cta {
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  .mid-cta p {
+    color: var(--white-50);
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+  }
+
+  /* ===================== FAQ ===================== */
+  .faq {
+    padding: 100px 0;
+  }
+
+  .faq .container { max-width: 800px; }
+
+  .faq h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 700;
+    margin-bottom: 48px;
+    letter-spacing: -0.01em;
+  }
+
+  .faq-list { display: grid; gap: 32px; }
+
+  .faq-item {
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--white-10);
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .faq-item h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--white);
+  }
+
+  .faq-item p {
+    color: var(--white-50);
+    font-size: 0.95rem;
+  }
+
+  .faq-item a {
+    color: var(--teal);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.2s;
+  }
+
+  .faq-item a:hover {
+    opacity: 0.8;
+  }
+
+  /* ===================== FINAL CTA ===================== */
+  .final-cta {
+    padding: 100px 0 120px;
+    text-align: center;
+    position: relative;
+  }
+
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, var(--teal-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .final-cta h2 .accent { color: var(--teal); }
+
+  .final-cta p {
+    color: var(--white-50);
+    font-size: 1rem;
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .guarantee {
+    margin-top: 24px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--white-50);
+    letter-spacing: 0.05em;
+  }
+
+  /* ===================== FOOTER ===================== */
+  .footer {
+    padding: 48px 0;
+    border-top: 1px solid var(--white-10);
+    text-align: center;
+  }
+
+  .footer-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+
+  .footer-role {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+  }
+
+  .footer-copy {
+    margin-top: 24px;
+    font-size: 0.75rem;
+    color: var(--white-20);
+  }
+
+  .footer-note {
+    margin-top: 16px;
+    font-size: 0.78rem;
+    color: var(--white-50);
+    font-style: italic;
+  }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 768px) {
+    .hero-layout {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .hero-photos {
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .inside-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .inside-photos {
+      position: static;
+      max-width: 300px;
+      order: -1;
+    }
+
+    .prompt-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-proof { gap: 24px; }
+
+    .step {
+      grid-template-columns: 44px 1fr;
+      gap: 16px;
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      font-size: 0.95rem;
+    }
+
+    .cta-btn {
+      display: block;
+      text-align: center;
+      padding: 18px 32px;
+    }
+
+    .highlight-box { padding: 24px; }
+    .bonus-section { padding: 28px 24px; }
+
+    .hero-photos {
+      max-width: 280px;
+    }
+
+    .inside-photos {
+      max-width: 240px;
+    }
+  }
+
+  /* ===================== ANIMATION ===================== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-text > * {
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .hero-text > *:nth-child(2) { animation-delay: 0.1s; }
+  .hero-text > *:nth-child(3) { animation-delay: 0.2s; }
+  .hero-text > *:nth-child(4) { animation-delay: 0.3s; }
+  .hero-text > *:nth-child(5) { animation-delay: 0.4s; }
+
+  .hero-photos {
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-layout">
+      <div class="hero-text">
+        <div class="hero-tag">Ebook · Guia Prático</div>
+        <h1>Fotos profissionais de campanha.<br><span class="accent">Sem fotógrafo. Sem estúdio.</span></h1>
+        <p class="hero-sub">Mais de 20 prompts prontos pra gerar retratos políticos e corporativos com IA. Copie, cole no ChatGPT ou Gemini, anexe uma foto do rosto e pronto.</p>
+        <a href="https://pay.hotmart.com/D105168550F?bid=1774990554274" class="cta-btn" target="_blank" rel="noopener">Quero o ebook</a>
+        <div class="hero-proof">
+          <div class="hero-proof-item">
+            <span class="number">20+</span>
+            <span class="label">Prompts prontos</span>
+          </div>
+          <div class="hero-proof-item">
+            <span class="number">0</span>
+            <span class="label">Conhecimento necessário</span>
+          </div>
+          <div class="hero-proof-item">
+            <span class="number">7 dias</span>
+            <span class="label">Garantia</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-photos">
+        <div class="hero-photo">
+          <img src="img/foto-hero-1.jpg" alt="Retrato frontal sorrindo com camisa branca">
+        </div>
+        <div class="hero-photo">
+          <img src="img/foto-hero-2.jpg" alt="Retrato com gesto de coração e bandeira do Brasil">
+        </div>
+        <div class="hero-photo">
+          <img src="img/foto-hero-3.jpg" alt="Retrato apontando para a câmera com blazer">
+        </div>
+        <div class="hero-photo">
+          <img src="img/foto-hero-4.jpg" alt="Retrato com aperto de mão e terno">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== PROBLEM ==================== -->
+<section class="problem">
+  <div class="container">
+    <div class="section-label">O problema</div>
+    <h2>Campanha política precisa de muita foto. E foto boa custa caro.</h2>
+    <p>Retrato sorrindo, retrato sério, com bandeira, de terno, apontando pra câmera. Você sabe quais são. Cada candidato precisa de um banco de imagens completo pra usar em santinhos, redes sociais, sites e materiais de campanha.</p>
+    <p>Produzir tudo isso com fotógrafo, estúdio e edição leva tempo e dinheiro. E quando o resultado não fica bom, começa tudo de novo.</p>
+    <div class="highlight-box">
+      <p>O Prompt Político resolve isso. Cada prompt foi escrito com instruções técnicas de fotografia real: tipo de luz, ângulo de câmera, enquadramento, textura de tecido, posição das mãos, expressão facial. A IA gera imagens que parecem saídas de um ensaio de estúdio.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== HOW IT WORKS ==================== -->
+<section class="how">
+  <div class="container">
+    <div class="section-label">Como funciona</div>
+    <h2>Três passos. Nenhum deles exige saber design ou IA.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <h3>Escolha o prompt</h3>
+          <p>O ebook tem mais de 20 opções organizadas por tipo de foto: retrato formal, com bandeira, gestual, corporativo, editorial. Escolha o que precisa.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <h3>Copie e cole</h3>
+          <p>Abra o ChatGPT, Gemini ou a ferramenta que preferir. Cole o prompt e anexe uma foto do rosto da pessoa.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <h3>Gere a foto</h3>
+          <p>A IA entrega um retrato profissional pronto pra usar. Não gostou? Gere de novo quantas vezes quiser até encontrar a versão ideal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MID CTA ==================== -->
+<section class="mid-cta">
+  <div class="container">
+    <p>Se sabe copiar e colar texto, sabe usar o ebook.</p>
+    <a href="https://pay.hotmart.com/D105168550F?bid=1774990554274" class="cta-btn" target="_blank" rel="noopener">Quero o ebook</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== WHAT'S INSIDE ==================== -->
+<section class="inside">
+  <div class="container">
+    <div class="inside-header">
+      <div class="section-label">O que vem dentro</div>
+      <h2>Cada prompt foi escrito por uma designer.</h2>
+      <p>Com instruções técnicas de iluminação, enquadramento, postura e expressão facial. Não são frases genéricas.</p>
+    </div>
+
+    <div class="inside-layout">
+      <div>
+        <div class="prompt-grid">
+          <div class="prompt-item">Retrato camisa branca (sorrindo)</div>
+          <div class="prompt-item">Retrato camisa branca (sério)</div>
+          <div class="prompt-item">Retrato frontal de campanha</div>
+          <div class="prompt-item">Retrato com bandeira do Brasil</div>
+          <div class="prompt-item">Retrato com bandeira do estado</div>
+          <div class="prompt-item">Retrato com bandeira municipal</div>
+          <div class="prompt-item">Gesto de coração com bandeira</div>
+          <div class="prompt-item">Pose com punho cerrado</div>
+          <div class="prompt-item">Gesto de aperto de mão</div>
+          <div class="prompt-item">Dedo apontando pro eleitor</div>
+          <div class="prompt-item">Dedo apontando pra cima</div>
+          <div class="prompt-item">Mão no peito (gratidão)</div>
+          <div class="prompt-item">Braços cruzados (autoridade)</div>
+          <div class="prompt-item">Retrato sentado (corporativo)</div>
+          <div class="prompt-item">Blazer + terno (executivo)</div>
+          <div class="prompt-item">Retrato editorial P&B</div>
+          <div class="prompt-item">Retrato lifestyle (poltrona)</div>
+          <div class="prompt-item">Dark editorial (fundo escuro)</div>
+          <div class="prompt-item">Retrato fashion (mãos no bolso)</div>
+          <div class="prompt-item">Retrato com celular/laptop</div>
+        </div>
+      </div>
+
+      <div class="inside-photos">
+        <div class="inside-photo">
+          <img src="img/foto-inside-1.jpg" alt="Retrato com punho cerrado">
+        </div>
+        <div class="inside-photo">
+          <img src="img/foto-inside-2.jpg" alt="Retrato sério com bandeira do Brasil">
+        </div>
+        <div class="inside-photo">
+          <img src="img/foto-hero-2.jpg" alt="Retrato com gesto de coração e bandeira">
+        </div>
+        <div class="inside-photo">
+          <img src="img/foto-inside-3.jpg" alt="Retrato sorrindo perfil">
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus-section">
+      <div class="bonus-tag">Bônus incluído</div>
+      <h3>Prompts corporativos + Prompt de restauração</h3>
+      <p>Além dos prompts de campanha, o ebook traz um bloco extra com fotos corporativas (LinkedIn, site, branding pessoal). E um prompt técnico de restauração e upscale, pra aumentar a nitidez e qualidade de qualquer foto gerada.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== WHO ==================== -->
+<section class="who">
+  <div class="container">
+    <div class="section-label">Pra quem é</div>
+    <h2>Se você trabalha com campanha ou imagem pública, é pra você.</h2>
+    <div class="who-list">
+      <div class="who-item">
+        <div class="who-icon">📋</div>
+        <p><strong>Marqueteiros e coordenadores de campanha</strong> que precisam de volume de imagens sem depender de sessão fotográfica toda semana.</p>
+      </div>
+      <div class="who-item">
+        <div class="who-icon">🎯</div>
+        <p><strong>Candidatos e pré-candidatos</strong> que querem montar um banco de fotos profissional antes mesmo de ter verba pra produção.</p>
+      </div>
+      <div class="who-item">
+        <div class="who-icon">🖥️</div>
+        <p><strong>Designers e social medias</strong> que atendem clientes políticos e precisam de material visual rápido e com qualidade.</p>
+      </div>
+      <div class="who-item">
+        <div class="who-icon">👔</div>
+        <p><strong>Profissionais que cuidam de imagem pública</strong> de vereadores, deputados, prefeitos ou qualquer figura política.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== FAQ ==================== -->
+<section class="faq">
+  <div class="container">
+    <div class="section-label">Perguntas comuns</div>
+    <h2>Dúvidas antes de comprar</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Preciso saber alguma coisa de IA ou design?</h3>
+        <p>Nada. Se você sabe copiar e colar texto, sabe usar os prompts. Cada um vem pronto. É só colar na ferramenta e anexar a foto.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Qual ferramenta eu uso pra gerar as fotos?</h3>
+        <p>ChatGPT, Gemini ou qualquer ferramenta de geração de imagens com IA que aceite prompt de texto + foto de referência.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Funciona com qualquer rosto?</h3>
+        <p>Sim. Qualquer pessoa, qualquer idade, qualquer tom de pele. Os prompts foram escritos pra funcionar com qualquer foto de referência.</p>
+      </div>
+      <div class="faq-item">
+        <h3>E se eu não gostar do resultado?</h3>
+        <p>Você pode gerar quantas vezes quiser até encontrar a foto que funciona. E se ainda assim não servir pra você, tem 7 dias pra pedir reembolso.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Serve pra fotos femininas?</h3>
+        <p>Esse ebook contém prompts específicos para fotos masculinas. A versão feminina está disponível <a href="https://go.hotmart.com/O104717701B" target="_blank" rel="noopener">neste link</a>.</p>
+      </div>
+      <div class="faq-item">
+        <h3>O ebook é atualizado?</h3>
+        <p>Os prompts foram criados com nível de detalhe técnico alto o suficiente pra continuar funcionando mesmo com atualizações das ferramentas de IA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== FINAL CTA ==================== -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Fotos de campanha <span class="accent">em minutos</span>.</h2>
+    <p>Copie o prompt, cole na IA, anexe uma foto. O banco de imagens do seu candidato fica pronto no mesmo dia.</p>
+    <a href="https://pay.hotmart.com/D105168550F?bid=1774990554274" class="cta-btn" target="_blank" rel="noopener">Quero o ebook agora</a>
+    <div class="guarantee">7 dias de garantia · Acesso imediato após a compra</div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-name">BRENDHA MORAES</div>
+    <div class="footer-role">Designer Gráfico · IA Aplicada</div>
+    <p class="footer-note">Este ebook contém prompts específicos para fotos masculinas.</p>
+    <p class="footer-copy">&copy; 2025 Brendha Moraes. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>
